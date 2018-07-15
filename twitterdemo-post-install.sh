@@ -233,11 +233,11 @@ captureEnvironment () {
 
 
 createHiveTables () {
-  cp /root/twitter_hdp/hiveddl.sql /home/hdfs
+  cp /home/cloudbreak/twitter_hdp/hiveddl.sql /home/hdfs
   sudo -u hdfs hive -f /home/hdfs/hiveddl.sql
 }
 
-exec > >(tee -i /root/demo-install.log)
+exec > >(tee -i /home/cloudbreak/demo-install.log)
 exec 2>&1
 
 export ROOT_PATH=~
