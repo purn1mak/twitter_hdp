@@ -12,4 +12,4 @@ CREATE EXTERNAL TABLE IF NOT EXISTS tweetsummary
 (id BIGINT, id_str STRING, created_at STRING, 
 timestamp_ms STRING, lang STRING, text STRING) 
 STORED AS ORC
-location 'gs://pkgcpbucket/tweet-lake/summary/';
+location 'gs://pkhwx/tweet-lake/summary/';
