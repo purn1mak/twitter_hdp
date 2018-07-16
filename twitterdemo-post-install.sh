@@ -247,7 +247,11 @@ echo "*********************************ROOT PATH IS: $ROOT_PATH"
 export AMBARI_HOST=$(hostname -f)
 echo "*********************************AMABRI HOST IS: $AMBARI_HOST"
 
-export CLUSTER_NAME=$(curl -u admin:admin -X GET http://$AMBARI_HOST:8080/api/v1/clusters |grep cluster_name|grep -Po ': "(.+)'|grep -Po '[a-zA-Z0-9\-_!?.]+')
+export CLUSTER_NAME=$(cat /opt/metadata/cluster.json |jq -r .clusterName)
+echo "*********************************AMABRI HOST IS: $CLUSTER_NAME"
+
+output=`curl -u ${ambari_admin}:${ambari_pass} -i -H 'X-Requested-By: ambari'  http://${ambari_host}:8080/api/v1/clusters`
+export CLUSTER_NAME=`echo $output | sed -n 's/.*"cluster_name" : "\([^\"]*\)".*/\1/p'`
 
 if [[ -z $CLUSTER_NAME ]]; then
         echo "Could not connect to Ambari Server. Please run the install script on the same host where Ambari Server is installed."
@@ -263,8 +267,8 @@ echo "*********************************HDP VERSION IS: $VERSION"
 export HADOOP_USER_NAME=hdfs
 echo "*********************************HADOOP_USER_NAME set to HDFS"
 
-echo "********************************* Capturing Service Endpoint in the Environment"
-captureEnvironment
+#echo "********************************* Capturing Service Endpoint in the Environment"
+#captureEnvironment
 
 
 echo "********************************* Creating HIVE Tables"
