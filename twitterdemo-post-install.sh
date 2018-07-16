@@ -250,7 +250,7 @@ echo "*********************************AMABRI HOST IS: $AMBARI_HOST"
 export CLUSTER_NAME=$(cat /opt/metadata/cluster.json |jq -r .clusterName)
 echo "*********************************AMABRI HOST IS: $CLUSTER_NAME"
 
-output=`curl -u ${ambari_admin}:${ambari_pass} -i -H 'X-Requested-By: ambari'  http://${ambari_host}:8080/api/v1/clusters`
+output=`curl -u admin:BadPass#1 -i -H 'X-Requested-By: ambari'  http://${AMBARI_HOST}:8080/api/v1/clusters`
 export CLUSTER_NAME=`echo $output | sed -n 's/.*"cluster_name" : "\([^\"]*\)".*/\1/p'`
 
 if [[ -z $CLUSTER_NAME ]]; then
