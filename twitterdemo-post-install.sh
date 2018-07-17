@@ -233,7 +233,8 @@ captureEnvironment () {
 
 
 createHiveTables () {
-  cp twitter_hdp/hiveddl.sql /home/hdfs
+  chmod 777 twitter_hdp/hiveddl.sql
+  sudo cp twitter_hdp/hiveddl.sql /home/hdfs
   sudo -u hdfs hive -f /home/hdfs/hiveddl.sql
 }
 
