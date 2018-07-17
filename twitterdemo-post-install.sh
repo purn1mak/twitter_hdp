@@ -233,7 +233,7 @@ captureEnvironment () {
 
 
 createHiveTables () {
-  cp /home/cloudbreak/twitter_hdp/hiveddl.sql /home/hdfs
+  cp twitter_hdp/hiveddl.sql /home/hdfs
   sudo -u hdfs hive -f /home/hdfs/hiveddl.sql
 }
 
