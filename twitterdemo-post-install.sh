@@ -232,10 +232,10 @@ captureEnvironment () {
 }
 
 
-createHiveTables () {  
-  sudo cp /root/twitter_hdp/hiveddl.sql /home/cloudbreak
-  #hadoop fs -chmod 777 /tmp/hiveddl.sql
+createHiveTables () {    
+  cp /root/twitter_hdp/hiveddl.sql /home/cloudbreak
   sudo -u hdfs hive -f /home/cloudbreak/hiveddl.sql
+  
 }
 
 exec > >(tee -i /home/cloudbreak/demo-install.log)
