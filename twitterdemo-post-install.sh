@@ -232,11 +232,10 @@ captureEnvironment () {
 }
 
 
-createHiveTables () {
-  chmod 777 twitter_hdp/hiveddl.sql
-  sudo cp twitter_hdp/hiveddl.sql /home/hdfs
-  hadoop fs -chmod 777 /tmp/hiveddl.sql
-  sudo -u hdfs hive -f /home/hdfs/hiveddl.sql
+createHiveTables () {  
+  sudo cp /root/twitter_hdp/hiveddl.sql /home/cloudbreak
+  #hadoop fs -chmod 777 /tmp/hiveddl.sql
+  sudo -u hdfs hive -f /home/cloudbreak/hiveddl.sql
 }
 
 exec > >(tee -i /home/cloudbreak/demo-install.log)
@@ -269,8 +268,8 @@ echo "*********************************HDP VERSION IS: $VERSION"
 export HADOOP_USER_NAME=hdfs
 echo "*********************************HADOOP_USER_NAME set to HDFS"
 
-#echo "********************************* Capturing Service Endpoint in the Environment"
-#captureEnvironment
+echo "********************************* Capturing Service Endpoint in the Environment"
+captureEnvironment
 
 
 echo "********************************* Creating HIVE Tables"
