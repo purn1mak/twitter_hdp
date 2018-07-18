@@ -13,10 +13,10 @@ CREATE EXTERNAL TABLE IF NOT EXISTS tweetsummary_part
 timestamp_ms STRING, lang STRING, text STRING) 
 PARTITIONED BY (year string, month string, day string)
 STORED AS ORC
-location 'gs://pkgcpbucket/tweet-lake/summary/';
+location 'gs://pkhwx/tweet-lake/summary/';
 
 
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='13') 
-location 'gs://pkgcpbucket/tweet-lake/summary/2018/07/13';
+location 'gs://pkhwx/tweet-lake/summary/2018/07/13';
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='18') 
-location 'gs://pkgcpbucket/tweet-lake/summary/2018/07/18';
+location 'gs://pkhwx/tweet-lake/summary/2018/07/18';
