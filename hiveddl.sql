@@ -18,3 +18,5 @@ location 'gs://pkgcpbucket/tweet-lake/summary/';
 
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='13') 
 location 'gs://pkgcpbucket/tweet-lake/summary/2018/07/13';
+ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='18') 
+location 'gs://pkgcpbucket/tweet-lake/summary/2018/07/18';
