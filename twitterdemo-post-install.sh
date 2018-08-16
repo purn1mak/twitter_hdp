@@ -235,7 +235,7 @@ captureEnvironment () {
 createHiveTables () {    
   sudo chmod 755 /home/cloudbreak
   cp /root/twitter_hdp/hiveddl.sql /home/cloudbreak  
-  sudo -u hive hive -f /home/cloudbreak/hiveddl.sql 
+  sudo -u hive hive -f /home/cloudbreak/hiveddl_aws.sql 
 }
 
 exec > >(tee -i /home/cloudbreak/demo-install.log)
