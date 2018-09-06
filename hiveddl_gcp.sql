@@ -20,15 +20,9 @@ ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='13')
 location 'gs://pkhwx/tweet-lake/summary/2018/07/13';
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='18') 
 location 'gs://pkhwx/tweet-lake/summary/2018/07/18';
-ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='22') 
-location 'gs://pkhwx/tweet-lake/summary/2018/07/22';
-ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='23') 
-location 'gs://pkhwx/tweet-lake/summary/2018/07/23';
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='07',day='24') 
 location 'gs://pkhwx/tweet-lake/summary/2018/07/24';
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='09',day='04') 
 location 'gs://pkhwx/tweet-lake/summary/2018/09/04';
 ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='09',day='06') 
 location 'gs://pkhwx/tweet-lake/summary/2018/09/06';
-ALTER TABLE tweetsummary_part ADD PARTITION (year='2018',month='09',day='07') 
-location 'gs://pkhwx/tweet-lake/summary/2018/09/07';
